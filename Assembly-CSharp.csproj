@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{32D0602F-1E6F-084D-B2AD-E9FAF79A17F0}</ProjectGuid>
+    <ProjectGuid>{187EA8BE-F9A6-33AA-47EF-45222655C887}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -62,16 +62,16 @@
     <Compile Include="Assets\Scripts\FollowPlayer.cs" />
     <Compile Include="Assets\SampleScenes\Scripts\CameraSwitch.cs" />
     <Compile Include="Assets\Scripts\Car.cs" />
+    <Compile Include="Assets\Scripts\PlaneReflection.cs" />
     <Compile Include="Assets\SampleScenes\Scripts\PlaceTargetWithMouse.cs" />
     <Compile Include="Assets\SampleScenes\Menu\Scripts\MenuSceneLoader.cs" />
-    <Compile Include="Assets\Scripts\meter.cs" />
     <Compile Include="Assets\Scripts\MirrorMove.cs" />
-    <Compile Include="Assets\Scripts\PlaneReflection.cs" />
+    <Compile Include="Assets\Scripts\meter.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Scripts\NewUnlitShader.shader" />
     <None Include="Assets\Course Library\_Source_Files\_LICENSE.txt" />
     <None Include="Assets\SampleScenes\Shaders\Skybox-Procedural.shader" />
+    <None Include="Assets\POLYGON city pack\Read_me.txt" />
     <None Include="Assets\Geopipe\Pack02\NYBlock02\Models\metadata.txt" />
   </ItemGroup>
   <ItemGroup>
@@ -675,7 +675,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{D0F17778-F20D-58F9-1C06-306EC1208DF0}</Project>
+      <Project>{57CFC17B-8DB0-7A17-306A-5FCB769BB1CB}</Project>
       <Name>Assembly-CSharp-firstpass</Name>
     </ProjectReference>
   </ItemGroup>

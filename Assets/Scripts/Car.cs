@@ -17,42 +17,27 @@ public class Car : MonoBehaviour {
     }
 
     public void FixedUpdate() {
-        float steering = maxSteeringAngle * Input.GetAxis("Horizontal");
+        float steering = maxSteeringAngle * Input.GetAxis("Horizontal") / 2;
         float motor = maxMotorTorque * Input.GetAxis("Vertical");
         float brake2 = maxMotorTorque * Input.GetAxis("Brake2");
-        float accel = maxMotorTorque * (1 - (Input.GetAxis("Accel") + 1) / 2);
-        float brake = maxMotorTorque * (1 - (Input.GetAxis("Brake") + 1) / 2);
+        float accel = maxMotorTorque * (1 + Input.GetAxis("Accel")) / 2;
+        float brake = maxMotorTorque * (1 + Input.GetAxis("Brake")) / 2;
+        float back = maxMotorTorque * (1 + Input.GetAxis("Back")) / 2;
         foreach (AxleInfo axleInfo in axleInfos) {
+            Debug.Log(accel);
+            Debug.Log(steering);
             if (axleInfo.steering) {
                 axleInfo.leftWheel.steerAngle = steering;
                 axleInfo.rightWheel.steerAngle = steering;
-                axleInfo.leftWheel.brakeTorque = brake * 8;
-                axleInfo.rightWheel.brakeTorque = brake * 8;
-                if (accel == 500 & brake == 500)
-                {
-                    accel = motor;
-                    brake = brake2;
-                    axleInfo.leftWheel.motorTorque = accel;
-                    axleInfo.rightWheel.motorTorque = accel;
-                    axleInfo.leftWheel.brakeTorque = brake * 8;
-                    axleInfo.rightWheel.brakeTorque = brake * 8;
-                }
+                axleInfo.leftWheel.brakeTorque = brake;
+                axleInfo.rightWheel.brakeTorque = brake;
             }
 
             if (axleInfo.motor) {
-                axleInfo.leftWheel.motorTorque = accel;
-                axleInfo.rightWheel.motorTorque = accel;
-                axleInfo.leftWheel.brakeTorque = brake * 2;
-                axleInfo.rightWheel.brakeTorque = brake * 2;
-                if(accel == 500 & brake == 500)
-                {
-                    accel = motor;
-                    brake = brake2;
-                    axleInfo.leftWheel.motorTorque = accel;
-                    axleInfo.rightWheel.motorTorque = accel;
-                    axleInfo.leftWheel.brakeTorque = brake * 2;
-                    axleInfo.rightWheel.brakeTorque = brake * 2;
-                }
+                axleInfo.leftWheel.motorTorque = accel - back;
+                axleInfo.rightWheel.motorTorque = accel - back;
+                axleInfo.leftWheel.brakeTorque = brake;
+                axleInfo.rightWheel.brakeTorque = brake;
             }
             ApplyLocalPositionToVisuals(axleInfo.rightWheel);
             ApplyLocalPositionToVisuals(axleInfo.leftWheel);
